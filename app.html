@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project By Ron Massey</title>
+    <title>Loan Calc: A Coding Project By Ron Massey</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,7 +21,7 @@
     <!----***** Nav Section ***** -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="/img/RMMark Color no background.svg" class="d-inline-block align-text-top" width="50" height="30" alt="Ron Massey Mark"> APP NAME</a>
+            <a class="navbar-brand" href="#"><img src="/img/RMMark Color no background.svg" class="d-inline-block align-text-top" width="50" height="30" alt="Ron Massey Mark"> Loan Calc</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,7 @@
                         <a class="nav-link" href="/code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                        <a class="nav-link" target="_blank" href="https://github.com/Rmassey11/LoanCalc.git">Git Repo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="#">About</a>
@@ -49,7 +49,52 @@
 </nav>
 <!----***** Main Section ***** -->
 <main class="flex-shrink-0">
-    <div class="container"></div>
+    <div class="container mt-5">
+        <div class="row row-cols-1 row-cols-lg-2">
+            <div class="col col-lg-4 border-end border-2">
+                <h5>Enter Values</h5>
+                    <form class="row gy-2 gx-3">
+                        <div class="col-12">
+                            <label for="loanTotal" class="form-label">Total Loan Amount</label>
+                            <input id="loanTotal" type="number" class="form-control" placeholder="Loan Total" 
+                            value=0 aria-label="Loan Total">
+                        </div>
+                        <div class="col-12">
+                            <label for="loanLength" class="form-label">Loan Length (Months)</label>
+                            <input id="loanLength" type="number" class="form-control" placeholder="Loan Length" 
+                            value=6 aria-label="Loan Length">
+                        </div>
+                        <div class="col-12">
+                            <label for="interestRate" class="form-label">Interest Rate %</label>
+                            <input id="interestRate" type="number" class="form-control" placeholder="Interest Rate"
+                            value=10 aria-label="Interest Rate">
+                        </div>
+                        <div class="col-12 d-flex justify-content-end">
+                            <button id="btnSubmit" type="button" class="btn btn-dark btn-lg">Calculate My Loan</button>
+                        </div>
+                    </form>
+            </div>
+            <div class="col col-lg-8">
+                <div>
+                    <h2 class="border-bottom border-2">Your Monthly Payments</h2>
+                    <div class="table-responsive">
+                        <table class="table table-borderless border-bottom">
+                            <thead>
+                                <tr>
+                                    <th>Total Principal</th>
+                                    <th>Total Interest</th>
+                                    <th>Total Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody id="totals">
+                                <!--Totals Go Here-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
  <!----***** Footer Section ***** -->
     <footer class="footer mt-auto py-3 sticky-footer">
@@ -77,11 +122,39 @@
             </div>
         </div>
     </footer>
+
+    <template id="lcTemplate">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Payment</th>
+                    <th>Principal</th>
+                    <th>Interest</th>
+                    <th>Total Interest</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
     </script>
     <script src="/js/site.js"></script>
+    <script>
+        document.getElementById("btnSubmit").addEventListener("click",getValues)
+    </script>
 </body>
 
 </html>
