@@ -51,7 +51,7 @@
 <main class="flex-shrink-0">
     <div class="container mt-5">
         <div class="row row-cols-1 row-cols-lg-2">
-            <div class="col col-lg-4 border-end border-2">
+            <div class="col col-lg-4 border-end border-bottom border-2">
                 <h5>Enter Values</h5>
                     <form class="row gy-2 gx-3">
                         <div class="col-12">
@@ -69,29 +69,38 @@
                             <input id="interestRate" type="number" class="form-control" placeholder="Interest Rate"
                             value=10 aria-label="Interest Rate">
                         </div>
-                        <div class="col-12 d-flex justify-content-end">
+                        <div class="col-12 d-flex justify-content-end mb-3">
                             <button id="btnSubmit" type="button" class="btn btn-dark btn-lg">Calculate My Loan</button>
                         </div>
                     </form>
             </div>
-            <div class="col col-lg-8">
+            <div class="col col-lg-8 border-bottom border-2">
                 <div>
                     <h2 class="border-bottom border-2">Your Monthly Payments</h2>
-                    <div class="table-responsive">
-                        <table class="table table-borderless border-bottom">
-                            <thead>
-                                <tr>
-                                    <th>Total Principal</th>
-                                    <th>Total Interest</th>
-                                    <th>Total Cost</th>
-                                </tr>
-                            </thead>
-                            <tbody id="totals">
-                                <!--Totals Go Here-->
-                            </tbody>
-                        </table>
-                    </div>
+                    <h4 id="monthlyPayment" class="d-flex justify-content-center">$</h4>
+                    <p class="mt-5">Total Principal: <span id="totalPrincipal"></span></p>
+                    <p>Total Interest: <span id="totalInterest"></span></p>
+                    <p>Total Cost: <span id="totalCost"></span></p>
                 </div>
+            </div>
+        </div>
+        <div class="row row-cols-1">
+            <div class="col-12">
+                <table class="table table-striped mt-5">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Month</th>
+                            <th>Payment</th>
+                            <th>Principal</th>
+                            <th>Interest</th>
+                            <th>Total Interest</th>
+                            <th>Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results">
+                        <!--Loan Results Here-->
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
